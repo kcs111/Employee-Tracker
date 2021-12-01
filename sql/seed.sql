@@ -20,19 +20,25 @@ VALUES ("Accountant", 125000, 3);
 INSERT INTO role (title, salary, department_id)
 VALUES ("Legal Team Lead", 250000, 4);
 
-INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("John", "Doe", 1, 3);
-INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Mike", "Chan", 2, 1);
-INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Ashley", "Rodriguez", 3, null);
-INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Kevin", "Tupik", 4, 3);
-INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Malia", "Brown", 5, null);
-INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Sarah", "Lourd", 2, null);
-INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Tom", "Allen", 4, 7);
-INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Christian", "Eckenrode", 1, 2);
+INSERT INTO employee (first_name, last_name, role_id)
+VALUES ("John", "Doe", 1);
+INSERT INTO employee (first_name, last_name, role_id)
+VALUES ("Mike", "Chan", 2);
+INSERT INTO employee (first_name, last_name, role_id)
+VALUES ("Ashley", "Rodriguez", 3);
+INSERT INTO employee (first_name, last_name, role_id)
+VALUES ("Kevin", "Tupik", 4);
+INSERT INTO employee (first_name, last_name, role_id)
+VALUES ("Malia", "Brown", 5);
+INSERT INTO employee (first_name, last_name, role_id)
+VALUES ("Sarah", "Lourd", 2);
+INSERT INTO employee (first_name, last_name, role_id)
+VALUES ("Tom", "Allen", 4);
+INSERT INTO employee (first_name, last_name, role_id)
+VALUES ("Christian", "Eckenrode", 1);
+
+UPDATE  employee set manager_id = 6 where id= 1;
+UPDATE employee set manager_id = 1 where id = 2;
+UPDATE employee set manager_id = 2 where id = 3;
+UPDATE employee set manager_id = 3 where id = 4;
+UPDATE employee set manager_id = 5 where id = 7;

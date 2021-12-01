@@ -29,11 +29,13 @@ function firstPrompt() {
       choices: [
         "View Employees",
         "View Employees by Department",
+        "View Role",
         // "View Employees by Manager",
         "Add Employee",
         "Remove Employees",
         "Update Employee Role",
         "Add Role",
+        "Add Department",
         // "Remove Role",
         // "Update Employee Manager",
         "End"]
@@ -61,6 +63,14 @@ function firstPrompt() {
         case "Add Role":
           addRole();
           break;
+          case "Add Department":
+          addDepartment();
+          break;
+          case "View Department":
+          viewDepartment();
+          break;
+          
+
         // case "Remove Role":
         //   removeRole();
         //   break;
@@ -408,13 +418,7 @@ function promptEmployeeRole(employeeChoices, roleChoices) {
 function addRole() {
 
   var query =
-    `SELECT d.id, d.name, r.salary AS budget
-    FROM employee e
-    JOIN role r
-    ON e.role_id = r.id
-    JOIN department d
-    ON d.id = r.department_id
-    GROUP BY d.id, d.name`
+    `select * from department`
 
   connection.query(query, function (err, res) {
     if (err) throw err;
@@ -429,6 +433,30 @@ function addRole() {
 
     promptAddRole(departmentChoices);
   });
+}
+
+// ADD Department
+
+function addDepartment () {
+
+  inquirer.prompt({
+    type: "input",
+    message: "What is the new department name?",
+    name: "departmentName"
+  }).then(data=> {
+    var query = "insert into department (name) values (?)"
+    connection.query (query,data.departmentName, (err,results)=> {
+      console.log("new department added")
+      firstPrompt()
+    })
+  })
+}
+
+function viewDepartment (){
+  connection.query("select * from departments", function(err,data){
+    console.table(data)
+    firstPrompt()
+  })
 }
 
 function promptAddRole(departmentChoices) {
