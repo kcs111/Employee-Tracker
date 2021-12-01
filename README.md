@@ -32,11 +32,11 @@ WHEN I choose to update an employee role
 
 ## MySQL up and running
 
-1. source db/schema.sql
-2. npm run seed
+1. source sql/schema.sql
+2.source sql/seed.sql
 
 ## Start
-- npm start
+- node index.js
 
 ## Video Link
 
